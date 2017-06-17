@@ -4,3 +4,6 @@ This is the source code for the "Laravel From Scratch" Youtube series by Travers
 
 ##Version
 1.0.0
+
+##Database
+The sql dump is in _SQL/lsapp.sql
