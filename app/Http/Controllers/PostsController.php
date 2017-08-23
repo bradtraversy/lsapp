@@ -147,7 +147,10 @@ class PostsController extends Controller
             $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
             
             // Delete Previous Image
-            Storage::delete('public/cover_images/'.$post->cover_image);
+            if($post->cover_image != 'noimage.jpg') {
+                Storage::delete('public/cover_images/'.$post->cover_image);
+            }
+            
         }
 
         // Update Post
