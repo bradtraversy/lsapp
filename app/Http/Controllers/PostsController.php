@@ -130,7 +130,7 @@ class PostsController extends Controller
             'title' => 'required',
             'body' => 'required'
         ]);
-		$post = Post::find($id);
+
          // Handle File Upload
         if($request->hasFile('cover_image')){
             // Get filename with the extension
@@ -143,11 +143,10 @@ class PostsController extends Controller
             $fileNameToStore= $filename.'_'.time().'.'.$extension;
             // Upload Image
             $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
-            // Delete file if exists
-            Storage::delete('public/cover_images/'.$post->cover_image);
         }
 
-        // Update Post
+        // Create Post
+        $post = Post::find($id);
         $post->title = $request->input('title');
         $post->body = $request->input('body');
         if($request->hasFile('cover_image')){
