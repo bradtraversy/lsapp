@@ -4,7 +4,7 @@
 1.4.0
 
 ## Installation Instructions
-- Run composer install on your cmd or terminal
+- Run composer install / update on your cmd or terminal
 - cp .env.example .env
 - Configure .env file
 - php artisan key:generate
