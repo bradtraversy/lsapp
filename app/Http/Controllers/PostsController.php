@@ -108,6 +108,11 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
+        
+        //Check if post exists before deleting
+        if (!isset($post)){
+            return redirect('/posts')->with('error', 'No Post Found');
+        }
 
         // Check for correct user
         if(auth()->user()->id !==$post->user_id){
@@ -166,6 +171,11 @@ class PostsController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+        
+        //Check if post exists before deleting
+        if (!isset($post)){
+            return redirect('/posts')->with('error', 'No Post Found');
+        }
 
         // Check for correct user
         if(auth()->user()->id !==$post->user_id){
