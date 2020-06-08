@@ -73,11 +73,13 @@ class PostsController extends Controller
             $fileNameToStore= $filename.'_'.time().'.'.$extension;
             // Upload Image
             $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+		
 	    // make thumbnails
 	    $thumbStore = 'thumb.'.$filename.'_'.time().'.'.$extension;
             $thumb = Image::make($request->file('cover_image')->getRealPath());
             $thumb->resize(80, 80);
             $thumb->save('storage/cover_images/'.$thumbStore);
+		
         } else {
             $fileNameToStore = 'noimage.jpg';
         }
@@ -156,11 +158,13 @@ class PostsController extends Controller
             $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
             // Delete file if exists
             Storage::delete('public/cover_images/'.$post->cover_image);
+		
 	   //Make thumbnails
 	    $thumbStore = 'thumb.'.$filename.'_'.time().'.'.$extension;
             $thumb = Image::make($request->file('cover_image')->getRealPath());
             $thumb->resize(80, 80);
             $thumb->save('storage/cover_images/'.$thumbStore);
+		
         }
 
         // Update Post
