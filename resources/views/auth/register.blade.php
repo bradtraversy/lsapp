@@ -37,6 +37,36 @@
                                 @endif
                             </div>
                         </div>
+                        <!--------------------------------------------------------------------->
+                        <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
+                            <label for="gender" class="col-md-4 control-label">Gender</label>
+
+                            <div class="col-md-6">
+                                <label class="radio-inline">
+                                <input type="radio"  id="option1" name="gender" value="m" >male</label>
+                                <label class="radio-inline">
+                                <input type="radio" id="option2" name="gender" value="f" >female</label>
+
+                                @if ($errors->has('gender'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('gender') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('industry') ? ' has-error' : '' }}">    
+                            <label for="industry" class="col-md-4 control-label">Industry</label>
+                            <div class="col-md-6">                             
+                        <select class="form-control" id="selectIndustry" name="industry" required focus>
+                         <option value="" disabled selected>Please select industry</option>        
+                             @foreach($industry_arr as $industry)
+                            <option value="{{$industry}}">{{ $industry }}</option>
+                            @endforeach
+                       </select>
+                       </div>
+  
+                     </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>

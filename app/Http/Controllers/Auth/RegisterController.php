@@ -51,6 +51,8 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'gender' => 'required|string|max:1',
+            'industry' => 'required|string|max:255'
         ]);
     }
 
@@ -67,5 +69,11 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+    
+    public function showRegistrationForm()
+    {
+       $industry_arr = ['Health', 'Tourism', 'Transport', 'Oil and Gas'];//DB::table('terms_condition')->get();
+       return view('auth.register',compact('industry_arr'));
     }
 }
