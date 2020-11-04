@@ -40,20 +40,41 @@
                         <!--------------------------------------------------------------------->
                         <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
                             <label for="gender" class="col-md-4 control-label">Gender</label>
-
                             <div class="col-md-6">
-                                <label class="radio-inline">
-                                <input type="radio"  id="option1" name="gender" value="m" >male</label>
-                                <label class="radio-inline">
-                                <input type="radio" id="option2" name="gender" value="f" >female</label>
+                            <label for="gender" class="" style="margin-right:10px;">
+                                {{Form ::radio('gender','m')}}
+                                M
+                            </label>
+                            <label for="gender" class="">
+                               {{Form ::radio('gender','f')}}
+                                F
+                            </label>
+                            </div>
 
                                 @if ($errors->has('gender'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('gender') }}</strong>
                                     </span>
                                 @endif
+                        </div>
+                       
+
+                        <div class="form-group{{ $errors->has('dob') ? ' has-error' : '' }}">
+                            <label for="dob" class="col-md-4 control-label">DOB</label>
+
+                            <div class="col-md-6">
+                                <!--<label class="radio-inline">
+                                {{ Form::label('valid_from', 'Valid From') }}-->
+                                    {{ Form::date('dob', null, array('class' => 'form-control')) }}
+                                @if ($errors->has('dob'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('dob') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
+                       
+                      
 
                         <div class="form-group{{ $errors->has('industry') ? ' has-error' : '' }}">    
                             <label for="industry" class="col-md-4 control-label">Industry</label>
@@ -65,8 +86,25 @@
                             @endforeach
                        </select>
                        </div>
-  
                      </div>
+
+                     <div class="form-group{{ $errors->has('tier') ? ' has-error' : '' }}">    
+                        <label for="tier" class="col-md-4 control-label">Tier</label>
+                        <div class="col-md-6">                             
+                        {{Form::select('tier', array(
+                            ' ' => array(' ' => ''),
+                            '$2000 - $4000' => array('3:2' => '3 bronze, 2 silver','4:1' => '4 bronze, 1 silver'),
+                            '$4000 - $6000' => array('5:2' => '5 silver, 2 gold', '4:3' => '2 silver, 3 gold'),
+                        ),'$2000 - $4000')}}
+                        </div>
+                    </div>
+
+
+          
+
+                    
+
+
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
