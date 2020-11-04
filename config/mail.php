@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'dtjh@live.com.sg'),
+        'name' => env('MAIL_FROM_NAME', 'dtjh'),
     ],
 
     /*
@@ -71,7 +71,7 @@ return [
     |
     */
 
-    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    'encryption' => env('MAIL_ENCRYPTION', null),
 
     /*
     |--------------------------------------------------------------------------
@@ -84,10 +84,13 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => env('dtjh@live.com.sg'),
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => env('ts00212383ts00212383'),
 
+    'SENDGRID_API_KEY' => env('dtjh@live.com.sg'),
+    'MAIL_USERNAME' => env('apikey'),
+    'MAIL_PASSWORD' => env('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'),
     /*
     |--------------------------------------------------------------------------
     | Sendmail System Path

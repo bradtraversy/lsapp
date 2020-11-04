@@ -36,4 +36,11 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function showLoginForm()
+    {
+       $choices = ['choice1', 'choice2'];//DB::table('terms_condition')->get();
+       return view('auth.login',compact('choices'));
+    }
+
 }

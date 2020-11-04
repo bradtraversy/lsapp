@@ -38,15 +38,29 @@ class ForgotPasswordController extends Controller
         $this->middleware('guest');
     }
 
-    public function sendResetLinkEmail(Request $request){
+    /*public function sendResetLinkEmail(Request $request){
         Log::info("sendresetlinkemail");
         $this->validate($request, ['email' => 'required|email']);
-        //$data = ['message' => 'This is a test!'];
-        //try {
-        //Mail::to('dtjh@live.com.sg')->send(new TestEmail($data));
-       // } catch(Throwable $e) {
-       //     Log::info($e);
-        //}
+
+        
+        /** @var PasswordBroker $broker * /
+        $broker = $this->getBroker();
+        $broker = \Password::broker($broker);
+        
+        /** @var User $user * /
+        $user = $broker->getUser($this->getSendResetLinkEmailCredentials($request));
+        $token = $broker->createToken(
+            $user
+        );
+
+        $resetLink = route('resetPassword', ['token' => $token]) . '?email=' . $request->get('email');
+        $response = (new ResetPasswordEmail())->withData(['resetLink' => $resetLink])->sendTo($user);
+        if ($response->http_status_code !== 202) {
+            \Log::error('Failed to send welcome email to user.', ['user' => $user]);
+            return $this->getSendResetLinkEmailFailureResponse(Password::INVALID_USER);
+        } else {
+            return $this->getSendResetLinkEmailSuccessResponse(Password::RESET_LINK_SENT);
+        }
 
         $email = new \SendGrid\Mail\Mail(); 
         $email->setFrom("dtjh@live.com.sg", "Example User");
@@ -67,5 +81,5 @@ class ForgotPasswordController extends Controller
             Log::info('Caught exception: '. $e->getMessage() ."\n");
         }        
         return redirect('/posts')->with('error', 'No Post Found');
-    }
+    }*/
 }
