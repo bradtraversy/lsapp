@@ -2,6 +2,11 @@
 
 return [
 
+
+    'postmark' => [
+        'secret' => env('POSTMARK_SECRET'),    
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Mail Driver
@@ -16,7 +21,7 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+    'driver' => env('MAIL_DRIVER', 'postmark'),
 
     /*
     |--------------------------------------------------------------------------
@@ -29,7 +34,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    //'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +47,7 @@ return [
     |
     */
 
-    'port' => env('MAIL_PORT', 587),
+    //'port' => env('MAIL_PORT', 587),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,7 +61,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'dtjh@live.com.sg'),
+        'address' => env('MAIL_FROM_ADDRESS', 'daryl.tan1@ascendcom.com.sg'),
         'name' => env('MAIL_FROM_NAME', 'dtjh'),
     ],
 
@@ -84,13 +89,13 @@ return [
     |
     */
 
-    'username' => env('dtjh@live.com.sg'),
+    //'username' => env('dtjh@live.com.sg'),
 
-    'password' => env('ts00212383ts00212383'),
+    //'password' => env('123123'),
 
-    'SENDGRID_API_KEY' => env('dtjh@live.com.sg'),
-    'MAIL_USERNAME' => env('apikey'),
-    'MAIL_PASSWORD' => env('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'),
+    //'SENDGRID_API_KEY' => env('dtjh@live.com.sg'),
+    //'MAIL_USERNAME' => env('apikey'),
+    //'MAIL_PASSWORD' => env('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'),
     /*
     |--------------------------------------------------------------------------
     | Sendmail System Path

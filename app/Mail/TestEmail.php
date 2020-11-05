@@ -30,7 +30,7 @@ class TestEmail extends Mailable
      */
     public function build()
     {
-        $address = 'dtjh@live.com.sg';
+        $address = 'daryl.tan@ascendcom.com.sg';
         $subject = 'This is a demo!';
         $name = 'dt';
 
