@@ -6,12 +6,12 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+        "coconutcraig/laravel-postmark": "^2.10",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4.0",
-        "unisharp/laravel-ckeditor": "^4.6",
-        "wildbit/postmark-php": "^4.0"
+        "unisharp/laravel-ckeditor": "^4.6"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -34,7 +34,7 @@ return [
     |
     */
 
-    //'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'smtp.postmarkapp.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -61,8 +61,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'daryl.tan1@ascendcom.com.sg'),
-        'name' => env('MAIL_FROM_NAME', 'dtjh'),
+        'address' => env('MAIL_FROM_ADDRESS', 'daryl.tan@ascendcom.com.sg'),
+        'name' => env('MAIL_FROM_NAME', 'Daryl Ascend'),
     ],
 
     /*
