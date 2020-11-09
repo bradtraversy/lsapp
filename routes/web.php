@@ -40,5 +40,5 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 
 Auth::routes(['verify' => true]);
 
-Route::resource('posts', 'PostsController')->middleware('verified');
-Route::get('/dashboard', 'DashboardController@index');
+Route::resource('posts', 'PostsController');
+Route::get('/dashboard', 'DashboardController@index')->middleware('verified');
